@@ -2,7 +2,7 @@ MAKEFLAGS += --no-builtin-rules
 
 # Options
 NON_MATCHING 	?= 0
-VERSION      	?= jp
+VERSION      	?= eu
 OBJDUMP_BUILD 	?= 0
 VERIFY       	?= verify
 VERBOSE 		?= 0
@@ -147,7 +147,7 @@ LD_FLAGS   := -T $(LD_SCRIPT) -T undefined_syms_auto.txt
 LD_FLAGS   += -Map $(TARGET).map --no-check-sections
 
 ASM_PROC := python3 tools/asm-processor/build.py
-ASM_PROC_FLAGS := --input-enc=utf-8 --output-enc=euc-jp
+ASM_PROC_FLAGS := --input-enc=utf-8 --output-enc=euc-eu
 
 
 ### File and directory flags
@@ -218,7 +218,7 @@ $(BUILD_DIR)/$(SRC_DIR)/data/%.c.o: $(SRC_DIR)/data/%.c
 
 $(BUILD_DIR)/%.s.o: %.s
 	$(V)$(PRINT)$(GREEN)Assembling asm file: $(ENDGREEN)$(BLUE)$<$(ENDBLUE)$(ENDLINE)
-	$(V)iconv --from UTF-8 --to EUC-JP $< | $(AS) $(ASFLAGS) -o $@
+	$(V)iconv --from UTF-8 --to EUC-EU $< | $(AS) $(ASFLAGS) -o $@
 
 
 # uncompressed images
@@ -279,7 +279,7 @@ $(LD_SCRIPT):
 	$(error Please run 'make setup' and try again.)
 
 baserom.$(VERSION).z64:
-	$(error Place the JP chameleon twist ROM, named '$@', in the root of this repo and try again.)
+	$(error Place the EU chameleon twist ROM, named '$@', in the root of this repo and try again.)
 
 ### Settings
 .DEFAULT_GOAL: all
